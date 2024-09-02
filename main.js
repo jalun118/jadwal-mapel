@@ -114,38 +114,47 @@ const senin = [
         end: "14:20",
     },
 ];
-const tempDataDefault = {
-    agenda: "",
-    start: "00:00",
-    end: "00:00",
-};
 
 function listAgenda(day, data = [{ agenda: "", start: "00:00", end: "00:00" }]) {
     const newData = [];
-    let tempData = tempDataDefault;
+    let tempData = {
+        agenda: "",
+        start: "00:00",
+        end: "00:00",
+    };
 
     for (let i = 0; i < data.length; i++) {
         const v = data[i];
-        if ((tempData.agenda !== v.agenda)) {
-            newData.push(tempData);
-            tempData = tempDataDefault;
+        if (tempData.agenda === "") {
+            tempData = {
+                agenda: v.agenda,
+                start: v.start,
+                end: v.end,
+            };
         }
 
-        if (tempData.agenda === "") {
-            tempData.agenda = v.agenda;
-            tempData.start = v.start;
-            tempData.end = v.end;
+        if (tempData.agenda !== "" && (tempData.agenda !== v.agenda)) {
+            newData.push({
+                agenda: tempData.agenda,
+                start: tempData.start,
+                end: tempData.end,
+            });
+            tempData = {
+                agenda: v.agenda,
+                start: v.start,
+                end: v.end,
+            };
         }
 
         if (tempData.agenda === v.agenda) {
             tempData.end = v.end;
         }
+
+        console.log(tempData);
+        
     }
     return newData;
 }
-
-const x = listAgenda("senin", senin);
-console.log(x);
 
 
 const selasa = [
@@ -210,6 +219,11 @@ const selasa = [
         end: "15:00",
     },
 ];
+
+
+const x = listAgenda("selasa", selasa);
+console.log(x);
+
 
 const rabu = [
     {
