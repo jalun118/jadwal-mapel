@@ -1,3 +1,5 @@
+const fs = require("node:fs");
+
 const agendaHarian = {
     0: "Upacara",
     1: "Istirahat",
@@ -6,9 +8,17 @@ const agendaHarian = {
     4: "Ekstrakulikuler",
 };
 
+const agendaHarianArray = [
+    "Upacara",
+    "Istirahat",
+    "Literasi Agama",
+    "Literasi",
+    "Ekstrakulikuler",
+];
+
 const listMapel = {
     6: {
-        mapel: "Pkn",
+        mapel: "Ppkn",
         guru: "Abdul Karim, S.Pd, M.M."
     },
     14: {
@@ -60,22 +70,22 @@ const listMapel = {
 const senin = [
     {
         agenda: agendaHarian[0],
-        start: "07:00",
-        end: "08:00",
+        start: "7:00",
+        end: "8:00",
     },
     {
         agenda: listMapel[42].mapel,
-        start: "08:00",
-        end: "08:40",
+        start: "8:00",
+        end: "8:40",
     },
     {
         agenda: listMapel[42].mapel,
-        start: "08:40",
-        end: "09:20",
+        start: "8:40",
+        end: "9:20",
     },
     {
         agenda: listMapel[14].mapel,
-        start: "09:20",
+        start: "9:20",
         end: "10:00",
     },
     {
@@ -115,77 +125,35 @@ const senin = [
     },
 ];
 
-function listAgenda(day, data = [{ agenda: "", start: "00:00", end: "00:00" }]) {
-    const newData = [];
-    let tempData = {
-        agenda: "",
-        start: "00:00",
-        end: "00:00",
-    };
-
-    for (let i = 0; i < data.length; i++) {
-        const v = data[i];
-        if (tempData.agenda === "") {
-            tempData = {
-                agenda: v.agenda,
-                start: v.start,
-                end: v.end,
-            };
-        }
-
-        if (tempData.agenda !== "" && (tempData.agenda !== v.agenda)) {
-            newData.push({
-                agenda: tempData.agenda,
-                start: tempData.start,
-                end: tempData.end,
-            });
-            tempData = {
-                agenda: v.agenda,
-                start: v.start,
-                end: v.end,
-            };
-        }
-
-        if (tempData.agenda === v.agenda) {
-            tempData.end = v.end;
-        }
-
-        console.log(tempData);
-        
-    }
-    return newData;
-}
-
-
 const selasa = [
     {
         agenda: listMapel[25].mapel,
-        start: "07:00",
-        end: "07:40",
+        start: "7:00",
+        end: "7:40",
     },
     {
         agenda: listMapel[25].mapel,
-        start: "07:40",
-        end: "08:20",
+        start: "7:40",
+        end: "8:20",
     },
     {
         agenda: listMapel[6].mapel,
-        start: "08:20",
-        end: "09:00",
+        start: "8:20",
+        end: "9:00",
     },
     {
         agenda: listMapel[6].mapel,
-        start: "09:00",
-        end: "09:40",
+        start: "9:00",
+        end: "9:40",
     },
     {
         agenda: agendaHarian[1],
-        start: "09:40",
-        end: "09:55",
+        start: "9:40",
+        end: "9:55",
     },
     {
         agenda: listMapel[41].mapel,
-        start: "09:55",
+        start: "9:55",
         end: "10:35",
     },
     {
@@ -220,40 +188,35 @@ const selasa = [
     },
 ];
 
-
-const x = listAgenda("selasa", selasa);
-console.log(x);
-
-
 const rabu = [
     {
         agenda: listMapel[42].mapel,
-        start: "07:00",
-        end: "07:40",
+        start: "7:00",
+        end: "7:40",
     },
     {
         agenda: listMapel[42].mapel,
-        start: "07:40",
-        end: "08:20",
+        start: "7:40",
+        end: "8:20",
     },
     {
         agenda: listMapel[21].mapel,
-        start: "08:20",
-        end: "09:00",
+        start: "8:20",
+        end: "9:00",
     },
     {
         agenda: listMapel[21].mapel,
-        start: "09:00",
-        end: "09:40",
+        start: "9:00",
+        end: "9:40",
     },
     {
         agenda: agendaHarian[1],
-        start: "09:40",
-        end: "09:55",
+        start: "9:40",
+        end: "9:55",
     },
     {
         agenda: listMapel[21].mapel,
-        start: "09:55",
+        start: "9:55",
         end: "10:35",
     },
     {
@@ -281,22 +244,22 @@ const rabu = [
 const kamis = [
     {
         agenda: agendaHarian[3],
-        start: "07:00",
-        end: "08:00",
+        start: "7:00",
+        end: "8:00",
     },
     {
         agenda: agendaHarian[3],
-        start: "08:00",
-        end: "08:40",
+        start: "8:00",
+        end: "8:40",
     },
     {
         agenda: listMapel[36].mapel,
-        start: "08:40",
-        end: "09:20",
+        start: "8:40",
+        end: "9:20",
     },
     {
         agenda: listMapel[36].mapel,
-        start: "09:20",
+        start: "9:20",
         end: "10:00",
     },
     {
@@ -344,27 +307,27 @@ const kamis = [
 const jumat = [
     {
         agenda: agendaHarian[2],
-        start: "07:00",
-        end: "08:00",
+        start: "7:00",
+        end: "8:00",
     },
     {
         agenda: listMapel[36].mapel,
-        start: "08:00",
-        end: "08:40",
+        start: "8:00",
+        end: "8:40",
     },
     {
         agenda: listMapel[36].mapel,
-        start: "08:40",
-        end: "09:20",
+        start: "8:40",
+        end: "9:20",
     },
     {
         agenda: agendaHarian[1],
-        start: "09:20",
-        end: "09:35",
+        start: "9:20",
+        end: "9:35",
     },
     {
         agenda: listMapel[41].mapel,
-        start: "09:35",
+        start: "9:35",
         end: "10:15",
     },
     {
@@ -378,3 +341,168 @@ const jumat = [
         end: "11:35",
     },
 ];
+
+
+function durationMapelMinute(startDuration = "0:00", endDuration = "0:00") {
+    const [startHour, startMinute] = startDuration.split(":");
+    const StartDurationMinute = ((parseFloat(startHour ?? "") ?? 0) * 60) + (parseFloat(startMinute ?? "") ?? 0);
+    const [endHour, endMinute] = endDuration.split(":");
+    const EndDurationMinute = ((parseFloat(endHour ?? "") ?? 0) * 60) + (parseFloat(endMinute ?? "") ?? 0);
+    return EndDurationMinute - StartDurationMinute;
+}
+
+function durationConvert(duration) {
+    const [durationHour, durationMinute] = [
+        ((duration - (duration % 60)) / 60),
+        (duration % 60),
+    ];
+
+    if (durationHour > 0 && durationMinute > 0) {
+        return durationHour + " Jam " + durationMinute + " Menit";
+    }
+
+    if (durationHour < 1 && durationMinute > 0) {
+        return durationMinute + " Menit";
+    }
+
+    if (durationHour > 0 && durationMinute < 1) {
+        return durationHour + " Jam";
+    }
+    return "";
+}
+
+function durationMapel(startDuration = "0:00", endDuration = "0:00") {
+    const deltaTime = durationMapelMinute(startDuration, endDuration);
+    return durationConvert(deltaTime);
+}
+
+function listAgenda(data = [{ agenda: "", start: "0:00", end: "0:00" }]) {
+    const newDataAgenda = [];
+    let tempData = {
+        agenda: "",
+        start: "0:00",
+        end: "0:00",
+    };
+
+    for (let i = 0; i < data.length; i++) {
+        const v = data[i];
+
+        if (tempData.agenda === "") {
+            tempData = {
+                agenda: v.agenda,
+                start: v.start,
+                end: v.end,
+            };
+        }
+
+        if (tempData.agenda !== "" && (tempData.agenda !== v.agenda)) {
+            newDataAgenda.push({
+                agenda: tempData.agenda,
+                start: tempData.start,
+                end: tempData.end,
+            });
+            tempData = {
+                agenda: v.agenda,
+                start: v.start,
+                end: v.end,
+            };
+        }
+
+        if (tempData.agenda === v.agenda) {
+            tempData.end = v.end;
+        }
+
+        if (i + 1 === data.length) {
+            tempData.end = v.end;
+            newDataAgenda.push({
+                agenda: tempData.agenda,
+                start: tempData.start,
+                end: tempData.end,
+            });
+        }
+    }
+
+    const finalResult = [];
+
+    newDataAgenda.forEach((v) => {
+        finalResult.push({
+            agenda: v.agenda,
+            start: v.start,
+            end: v.end,
+            duration: durationMapel(v.start, v.end),
+        });
+    });
+
+
+    return finalResult;
+}
+
+function addNumber(datas = []) {
+    let currentNumber = 1;
+    let text = "";
+    for (let i = 0; i < datas.length; i++) {
+        const v = datas[i];
+        if (!agendaHarianArray.includes(v.agenda)) {
+            text += currentNumber + ". " + v.agenda + " " + v.start + " - " + v.end + " (" + v.duration + ")\n";
+            currentNumber++;
+        } else {
+            text += v.agenda + " " + v.start + " - " + v.end + " (" + v.duration + ")\n";
+        }
+    }
+    return text;
+}
+
+function filterMapel(mapel, datas) {
+    return datas.filter(v => v.agenda === mapel);
+}
+
+function SumDurationMapel() {
+    const countDurationMapel = [];
+    const all_mapel = [...senin, ...selasa, ...rabu, ...kamis, ...jumat];
+
+    for (const key in listMapel) {
+        const data = listMapel[key];
+        const dataDuration = filterMapel(data.mapel, all_mapel);
+        let sumDuration = 0;
+
+        dataDuration.forEach((v) => {
+            sumDuration += durationMapelMinute(v.start, v.end);
+        });
+
+        countDurationMapel.push({
+            mapel: data.mapel,
+            guru: data.guru,
+            duration: sumDuration,
+            duration_str: durationConvert(sumDuration)
+        });
+    }
+    return countDurationMapel.sort((a, b) => b.duration - a.duration);
+}
+
+function finalAgenda() {
+    const dataSenin = addNumber(listAgenda(senin));
+    const dataSelasa = addNumber(listAgenda(selasa));
+    const dataRabu = addNumber(listAgenda(rabu));
+    const dataKamis = addNumber(listAgenda(kamis));
+    const dataJumat = addNumber(listAgenda(jumat));
+    const sumMapel = SumDurationMapel();
+
+    let write = "JADWAL PELAJARAN\n\nSENIN:\n" +
+        dataSenin +
+        "\nSELASA:\n" +
+        dataSelasa +
+        "\nRABU:\n" +
+        dataRabu +
+        "\nKAMIS:\n" +
+        dataKamis +
+        "\nJUMAT:\n" +
+        dataJumat;
+
+    const mapel = sumMapel.map((v, i) => i + 1 + ". " + v.mapel + ": " + v.duration_str).join("\n");
+
+    write += "\n\nTOTAL DURASI\n" + mapel;
+
+    fs.writeFileSync(__dirname + "/result.txt", write);
+}
+
+finalAgenda();
