@@ -1,3 +1,88 @@
+# Auto Create Jadwal
+
+## 1. Clone Project
+
+```bash
+git clone <url-repo>
+```
+
+## 2. Input Mapel
+
+Schema:
+
+```js
+const listMapelKey = {
+    "<kode-mapel>": {
+        "<mapel-name>": "string",
+        "<teacher>": "string"
+    },
+    // any more
+}
+```
+
+Example
+
+```js
+const listMapelKey = {
+    6: {
+        mapel: "Ppkn",
+        guru: "Abdul Karim, S.Pd, M.M."
+    },
+    14: {
+        mapel: "Pjok",
+        guru: "Endang Sugiyarti, S.Pd."
+    },
+    17: {
+        mapel: "Matematika Wajib",
+        guru: "Ade Nurul Halim, S.Pd."
+    },
+    // your code mapel
+}
+```
+
+## 3. Change schedule
+
+look for variables such as "senin", "selasa” and others, then replace each variable.
+
+Schema Object:
+
+```js
+{
+    kegiatan: "key kode the activities",
+    start: "start the lesson",
+    end: "end the lesson",
+}
+```
+
+For example in variable "senin":
+
+```js
+const senin = [
+    {
+        kegiatan: listKegiatan[0],
+        start: "7:00",
+        end: "8:00",
+    },
+    {
+        kegiatan: listMapelKey[42].mapel,
+        start: "8:00",
+        end: "8:40",
+    },
+]
+```
+
+## 3. Running the project
+
+when the code is run it will be written to a file called ‘result.txt’.
+write this code in the terminal to start it up
+
+```bash
+node main.js
+```
+
+## 4. Example Result
+
+```
 JADWAL PELAJARAN
 
 SENIN:
@@ -60,3 +145,11 @@ TOTAL DURASI
 10. Pjok: 1 Jam 20 Menit
 11. Sbk: 1 Jam 20 Menit
 12. Antropologi: 1 Jam 20 Menit
+```
+
+## Node
+This project is still in its infancy and there are many flaws.
+
+Maybe this project can help a little.
+
+HAPPY CODING :)

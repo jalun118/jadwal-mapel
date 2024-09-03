@@ -1,4 +1,4 @@
-const agendaHarian = {
+const listKegiatan = {
     0: "Upacara",
     1: "Istirahat",
     2: "Literasi Agama",
@@ -6,9 +6,9 @@ const agendaHarian = {
     4: "Ekstrakulikuler",
 };
 
-const listMapel = {
+const listMapelKey = {
     6: {
-        mapel: "Pkn",
+        mapel: "Ppkn",
         guru: "Abdul Karim, S.Pd, M.M."
     },
     14: {
@@ -59,119 +59,120 @@ const listMapel = {
 
 const senin = [
     {
-        agenda: agendaHarian[0],
-        start: "07:00",
-        end: "08:00",
+        kegiatan: listKegiatan[0],
+        start: "7:00",
+        end: "8:00",
     },
     {
-        agenda: listMapel[42].mapel,
-        start: "08:00",
-        end: "08:40",
+        kegiatan: listMapelKey[42].mapel,
+        start: "8:00",
+        end: "8:40",
     },
     {
-        agenda: listMapel[42].mapel,
-        start: "08:40",
-        end: "09:20",
+        kegiatan: listMapelKey[42].mapel,
+        start: "8:40",
+        end: "9:20",
     },
     {
-        agenda: listMapel[14].mapel,
-        start: "09:20",
+        kegiatan: listMapelKey[14].mapel,
+        start: "9:20",
         end: "10:00",
     },
     {
-        agenda: agendaHarian[1],
+        kegiatan: listKegiatan[1],
         start: "10:00",
         end: "10:15",
     },
     {
-        agenda: listMapel[14].mapel,
+        kegiatan: listMapelKey[14].mapel,
         start: "10:15",
         end: "10:55",
     },
     {
-        agenda: listMapel[28].mapel,
+        kegiatan: listMapelKey[28].mapel,
         start: "10:55",
         end: "11:35",
     },
     {
-        agenda: listMapel[28].mapel,
+        kegiatan: listMapelKey[28].mapel,
         start: "11:35",
         end: "12:15",
     },
     {
-        agenda: agendaHarian[1],
+        kegiatan: listKegiatan[1],
         start: "12:15",
         end: "13:00",
     },
     {
-        agenda: listMapel[38].mapel,
+        kegiatan: listMapelKey[38].mapel,
         start: "13:00",
         end: "13:40",
     },
     {
-        agenda: listMapel[38].mapel,
+        kegiatan: listMapelKey[38].mapel,
         start: "13:40",
         end: "14:20",
     },
 ];
+
 const selasa = [
     {
-        agenda: listMapel[25].mapel,
-        start: "07:00",
-        end: "07:40",
+        kegiatan: listMapelKey[25].mapel,
+        start: "7:00",
+        end: "7:40",
     },
     {
-        agenda: listMapel[25].mapel,
-        start: "07:40",
-        end: "08:20",
+        kegiatan: listMapelKey[25].mapel,
+        start: "7:40",
+        end: "8:20",
     },
     {
-        agenda: listMapel[6].mapel,
-        start: "08:20",
-        end: "09:00",
+        kegiatan: listMapelKey[6].mapel,
+        start: "8:20",
+        end: "9:00",
     },
     {
-        agenda: listMapel[6].mapel,
-        start: "09:00",
-        end: "09:40",
+        kegiatan: listMapelKey[6].mapel,
+        start: "9:00",
+        end: "9:40",
     },
     {
-        agenda: agendaHarian[1],
-        start: "09:40",
-        end: "09:55",
+        kegiatan: listKegiatan[1],
+        start: "9:40",
+        end: "9:55",
     },
     {
-        agenda: listMapel[41].mapel,
-        start: "09:55",
+        kegiatan: listMapelKey[41].mapel,
+        start: "9:55",
         end: "10:35",
     },
     {
-        agenda: listMapel[41].mapel,
+        kegiatan: listMapelKey[41].mapel,
         start: "10:35",
         end: "11:15",
     },
     {
-        agenda: listMapel[17].mapel,
+        kegiatan: listMapelKey[17].mapel,
         start: "11:15",
         end: "11:55",
     },
     {
-        agenda: agendaHarian[1],
+        kegiatan: listKegiatan[1],
         start: "11:55",
         end: "12:40",
     },
     {
-        agenda: listMapel[17].mapel,
+        kegiatan: listMapelKey[25].mapel,
         start: "12:40",
         end: "13:20",
     },
     {
-        agenda: listMapel[34].mapel,
+        kegiatan: listMapelKey[34].mapel,
         start: "13:20",
         end: "14:00",
     },
     {
-        agenda: listMapel[34].mapel,
+        kegiatan: listMapelKey[34].mapel,
         start: "14:00",
         end: "15:00",
     },
@@ -179,52 +180,52 @@ const selasa = [
 
 const rabu = [
     {
-        agenda: listMapel[42].mapel,
-        start: "07:00",
-        end: "07:40",
+        kegiatan: listMapelKey[42].mapel,
+        start: "7:00",
+        end: "7:40",
     },
     {
-        agenda: listMapel[42].mapel,
-        start: "07:40",
-        end: "08:20",
+        kegiatan: listMapelKey[42].mapel,
+        start: "7:40",
+        end: "8:20",
     },
     {
-        agenda: listMapel[21].mapel,
-        start: "08:20",
-        end: "09:00",
+        kegiatan: listMapelKey[21].mapel,
+        start: "8:20",
+        end: "9:00",
     },
     {
-        agenda: listMapel[21].mapel,
-        start: "09:00",
-        end: "09:40",
+        kegiatan: listMapelKey[21].mapel,
+        start: "9:00",
+        end: "9:40",
     },
     {
-        agenda: agendaHarian[1],
-        start: "09:40",
-        end: "09:55",
+        kegiatan: listKegiatan[1],
+        start: "9:40",
+        end: "9:55",
     },
     {
-        agenda: listMapel[21].mapel,
-        start: "09:55",
+        kegiatan: listMapelKey[21].mapel,
+        start: "9:55",
         end: "10:35",
     },
     {
-        agenda: listMapel[36].mapel,
+        kegiatan: listMapelKey[36].mapel,
         start: "10:35",
         end: "11:15",
     },
     {
-        agenda: listMapel[41].mapel,
+        kegiatan: listMapelKey[41].mapel,
         start: "11:15",
         end: "11:55",
     },
     {
-        agenda: agendaHarian[1],
+        kegiatan: listKegiatan[1],
         start: "11:55",
         end: "12:40",
     },
     {
-        agenda: listMapel[41].mapel,
+        kegiatan: listMapelKey[41].mapel,
         start: "12:40",
         end: "13:20",
     },
@@ -232,62 +233,62 @@ const rabu = [
 
 const kamis = [
     {
-        agenda: agendaHarian[3],
-        start: "07:00",
-        end: "08:00",
+        kegiatan: listKegiatan[3],
+        start: "7:00",
+        end: "8:00",
     },
     {
-        agenda: agendaHarian[3],
-        start: "08:00",
-        end: "08:40",
+        kegiatan: listKegiatan[3],
+        start: "8:00",
+        end: "8:40",
     },
     {
-        agenda: listMapel[36].mapel,
-        start: "08:40",
-        end: "09:20",
+        kegiatan: listMapelKey[36].mapel,
+        start: "8:40",
+        end: "9:20",
     },
     {
-        agenda: listMapel[36].mapel,
-        start: "09:20",
+        kegiatan: listMapelKey[36].mapel,
+        start: "9:20",
         end: "10:00",
     },
     {
-        agenda: agendaHarian[1],
+        kegiatan: listKegiatan[1],
         start: "10:00",
         end: "10:15",
     },
     {
-        agenda: listMapel[24].mapel,
+        kegiatan: listMapelKey[24].mapel,
         start: "10:15",
         end: "10:55",
     },
     {
-        agenda: listMapel[24].mapel,
+        kegiatan: listMapelKey[24].mapel,
         start: "10:55",
         end: "11:35",
     },
     {
-        agenda: listMapel[24].mapel,
+        kegiatan: listMapelKey[24].mapel,
         start: "11:35",
         end: "12:15",
     },
     {
-        agenda: agendaHarian[1],
+        kegiatan: listKegiatan[1],
         start: "12:15",
         end: "13:00",
     },
     {
-        agenda: listMapel[25].mapel,
+        kegiatan: listMapelKey[25].mapel,
         start: "13:00",
         end: "13:40",
     },
     {
-        agenda: listMapel[25].mapel,
+        kegiatan: listMapelKey[25].mapel,
         start: "13:40",
         end: "14:20",
     },
     {
-        agenda: listMapel[42].mapel,
+        kegiatan: listMapelKey[42].mapel,
         start: "14:20",
         end: "15:00",
     },
@@ -295,38 +296,48 @@ const kamis = [
 
 const jumat = [
     {
-        agenda: agendaHarian[2],
-        start: "07:00",
-        end: "08:00",
+        kegiatan: listKegiatan[2],
+        start: "7:00",
+        end: "8:00",
     },
     {
-        agenda: listMapel[36].mapel,
-        start: "08:00",
-        end: "08:40",
+        kegiatan: listMapelKey[36].mapel,
+        start: "8:00",
+        end: "8:40",
     },
     {
-        agenda: listMapel[36].mapel,
-        start: "08:40",
-        end: "09:20",
+        kegiatan: listMapelKey[36].mapel,
+        start: "8:40",
+        end: "9:20",
     },
     {
-        agenda: agendaHarian[1],
-        start: "09:20",
-        end: "09:35",
+        kegiatan: listKegiatan[1],
+        start: "9:20",
+        end: "9:35",
     },
     {
-        agenda: listMapel[41].mapel,
-        start: "09:35",
+        kegiatan: listMapelKey[41].mapel,
+        start: "9:35",
         end: "10:15",
     },
     {
-        agenda: listMapel[17].mapel,
+        kegiatan: listMapelKey[17].mapel,
         start: "10:15",
         end: "10:55",
     },
     {
-        agenda: listMapel[17].mapel,
+        kegiatan: listMapelKey[17].mapel,
         start: "10:55",
         end: "11:35",
     },
 ];
+
+exports.jadwal = {
+    senin,
+    selasa,
+    rabu,
+    kamis,
+    jumat,
+    listMapelKey,
+    listKegiatan
+};
